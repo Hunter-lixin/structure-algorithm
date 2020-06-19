@@ -1,4 +1,4 @@
-package com.juc;
+package com.juc.alternateThread;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;

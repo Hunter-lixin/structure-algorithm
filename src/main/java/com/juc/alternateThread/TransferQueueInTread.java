@@ -1,4 +1,4 @@
-package com.juc;
+package com.juc.alternateThread;
 
 import java.util.concurrent.LinkedTransferQueue;
 import java.util.concurrent.TransferQueue;

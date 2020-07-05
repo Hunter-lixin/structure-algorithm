@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
-public class S1_With_CountDownLatch {
+public class S03_With_CountDownLatch {
     List<Object> list = new LinkedList<>();
 
     public void add(Object object) {
@@ -16,7 +16,7 @@ public class S1_With_CountDownLatch {
     }
 
     public static void main(String[] args) {
-        S1_With_CountDownLatch withCountDownLatch = new S1_With_CountDownLatch();
+        S03_With_CountDownLatch withCountDownLatch = new S03_With_CountDownLatch();
         CountDownLatch countDownLatch1 = new CountDownLatch(1);
         CountDownLatch countDownLatch2 = new CountDownLatch(1);
 

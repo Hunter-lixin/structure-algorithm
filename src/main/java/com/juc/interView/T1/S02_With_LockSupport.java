@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.locks.LockSupport;
 
-public class S1_With_LockSupport {
+public class S02_With_LockSupport {
     List<Object> list = new LinkedList<>();
 
     public void add(Object object) {
@@ -18,7 +18,7 @@ public class S1_With_LockSupport {
     static Thread t1, t2;
 
     public static void main(String[] args) {
-        S1_With_LockSupport withLockSupport = new S1_With_LockSupport();
+        S02_With_LockSupport withLockSupport = new S02_With_LockSupport();
 
         t2 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "开始");

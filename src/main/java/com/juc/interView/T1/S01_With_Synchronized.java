@@ -3,7 +3,7 @@ package com.juc.interView.T1;
 import java.util.LinkedList;
 import java.util.List;
 
-public class S1_With_Synchronized {
+public class S01_With_Synchronized {
     List<Object> list = new LinkedList<>();
 
     public void add(Object object) {
@@ -15,7 +15,7 @@ public class S1_With_Synchronized {
     }
 
     public static void main(String[] args) {
-        S1_With_Synchronized withSynchronized = new S1_With_Synchronized();
+        S01_With_Synchronized withSynchronized = new S01_With_Synchronized();
         Object lock = new Object();
 
         new Thread(() -> {

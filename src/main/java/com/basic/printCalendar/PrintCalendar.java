@@ -24,7 +24,7 @@ public class PrintCalendar {
 
         System.out.println("Sun Mon Tue Wed Thu Fri Sat");
         for (int i = 0; i < value; i++) {
-            System.out.print("    ");
+            System.out.printf("%4s","");
         }
 
         while (month == date.getMonthValue()) {

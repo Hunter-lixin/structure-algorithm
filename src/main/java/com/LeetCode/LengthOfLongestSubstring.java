@@ -1,8 +1,5 @@
 package com.LeetCode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * NO.3 无重复字符的最长子串
  * 给定一个字符串，请你找出其中不含有重复字符的最长子串的长度。
@@ -30,6 +27,25 @@ public class LengthOfLongestSubstring {
         if ("".equals(input) || input == null) {
             return 0;
         }
+
+        int i = 0, k, max = 0;
+        char[] charArray = input.toCharArray();
+        int length = charArray.length;
+
+        for (int j = 0; j < length; j++) {
+            for (k = i; k < j; k++) {
+                if (charArray[k] == charArray[j]) {
+                    i = k + 1;
+                    break;
+                }
+            }
+
+            max = Math.max(max, j - i + 1);
+        }
+
+        return max;
+
+        /*
         int result = 0;
         List<Character> list = new ArrayList<>();
         char[] charArray = input.toCharArray();
@@ -46,12 +62,12 @@ public class LengthOfLongestSubstring {
             }
             result = Math.max(result, list.size());
         }
-        return result;
+        return result;*/
     }
 
     public static void main(String[] args) {
 
-        String input = "abcabcbb";
+        String input = "bbbbb";
         int result = lengthOfLongestSubstring(input);
         System.out.println(result);
 

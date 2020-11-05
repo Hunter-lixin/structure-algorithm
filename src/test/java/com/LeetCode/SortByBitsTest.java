@@ -16,7 +16,6 @@ class SortByBitsTest {
      * [3,5,6] 有 2 个 1 。
      * [7] 有 3 个 1 。
      * 按照 1 的个数排序得到的结果数组为 [0,1,2,4,8,3,5,6,7]
-     *
      */
     @Test
     void sortByBits_1() {

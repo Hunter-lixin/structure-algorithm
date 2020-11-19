@@ -1,11 +1,9 @@
 package com.sort;
 
-import java.util.Arrays;
-
 /**
  * 归并排序
  */
-public class RecursiveSort {
+public class MergeSort {
 
     public void sort(int[] arr) {
         if (arr == null || arr.length < 2) {

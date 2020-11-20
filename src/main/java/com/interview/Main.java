@@ -1,76 +1,62 @@
 package com.interview;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
- * 示例：
- * 输入: [[1,2,2,1],
- * [3,1,2],
- * [1,3,2],
- * [2,4],
- * [3,1,2],
- * [1,3,1,1]]
- * <p>
- * 输出: 2
+ * String[] fun(String[] arr1, String[] arr2)
+ * 输入：两个String数组
+ * 输出：一个String数组
+ * 要求输出两个数组中满足如下条件的字符串集合：在其中一个数组中只出现1次，在另外一个数组中没有出现
+ * 举例：输入 {“aa”,”bb”,”cc”,”aa”} {“bb”,”dd”,”cc”},输出{“dd”};
  */
 public class Main {
 
-    public static int getCount(int[][] numsArray) {
-        int ans = 0;
+    public static String[] getUniArr(String[] arr1, String[] arr2) {
 
-        int length = numsArray.length;
-        int index = 0;
-        while (index < length) {
-            int[] currNums = numsArray[index];
-            int numsLength = currNums.length;
+        List<String> list = new ArrayList<>();
+        list.addAll(getListInFirstArr(arr1, arr2));
+        list.addAll(getListInFirstArr(arr2, arr1));
 
-            int currAns = 0;
+        return list.toArray(new String[0]);
+    }
 
-            for (int i = 1; i < numsLength - 1; i++) {
-                int currAllValue = getALl(currNums, i);
+    public static List<String> getListInFirstArr(String[] arr1, String[] arr2) {
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < arr1.length; i++) {
+            boolean existsInArr1 = false;
+            for (int j = 0; j < arr1.length; j++) {
+                if (i != j && arr1[i].equals(arr1[j])) {
+                    existsInArr1 = true;
+                    break;
+                }
+            }
 
-                int tempAns = 0;
-
-                for (int[] nums : numsArray) {
-                    int temp = 0;
-                    for (int num : nums) {
-                        temp += num;
-                        if (temp == currAllValue) {
-                            break;
-                        }
-                        if (temp > currAllValue) {
-                            tempAns++;
-                            break;
-                        }
+            if (!existsInArr1) {
+                boolean existsInArr2 = false;
+                for (String s : arr2) {
+                    if (arr1[i].equals(s)) {
+                        existsInArr2 = true;
+                        break;
                     }
                 }
-
-                if (currAns == 0) {
-                    currAns = tempAns;
-                } else if (tempAns > 0 && currAns > 0) {
-                    currAns = Math.min(tempAns, currAns);
+                if (!existsInArr2) {
+                    list.add(arr1[i]);
                 }
             }
-            index++;
-
-            if (ans == 0) {
-                ans = currAns;
-            } else if (ans > 0 && currAns > 0) {
-                ans = Math.min(ans, currAns);
-            }
         }
-
-        return ans;
+        return list;
     }
 
-    public static int getALl(int[] nums, int target) {
-        int ans = 0;
-        for (int i = 0; i < target; i++) {
-            ans += nums[i];
-        }
-        return ans;
-    }
 
     public static void main(String[] args) {
-        int[][] numsArray = new int[][]{{1, 2, 2, 1}, {3, 1, 2}, {1, 3, 2}, {2, 4}, {3, 1, 2}, {1, 3, 1, 1}};
-        System.out.println(getCount(numsArray));
+
+        String[] arr1 = new String[]{"aa", "bb", "cc"};
+        String[] arr2 = new String[]{"dd", "bb", "cc"};
+
+        System.out.println(Arrays.asList(getUniArr(arr1, arr2)));
+
     }
+
 }

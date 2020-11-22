@@ -37,11 +37,11 @@ class QuickSortTest {
     @Test
     void sort_with_random_element() {
         int[] arr = generateRandomArray(100, 15);
-        int[] expectResult = new int[arr.length];
-        System.arraycopy(arr, 0, expectResult, 0, expectResult.length);
+        int[] expectedArr = new int[arr.length];
+        System.arraycopy(arr, 0, expectedArr, 0, expectedArr.length);
         quickSort.sort(arr);
-        Arrays.sort(expectResult);
-        assertArrayEquals(expectResult, arr);
+        Arrays.sort(expectedArr);
+        assertArrayEquals(expectedArr, arr);
     }
 
 

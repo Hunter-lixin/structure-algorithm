@@ -27,6 +27,8 @@ public class QuickSort {
     public static int[] netherlandsFlag(int[] arr, int left, int right) {
         if (left > right) {
             return new int[]{-1, -1};
+        } else if (left == right) {
+            return new int[]{left, right};
         }
 
         int less = left - 1;

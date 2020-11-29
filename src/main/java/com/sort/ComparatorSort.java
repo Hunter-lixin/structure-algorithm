@@ -38,6 +38,8 @@ public class ComparatorSort {
     }
 
     public static void main(String[] args) {
+
+//        System.out.println(Math.pow(10, 2));
 //        PriorityQueue<Student> queue = new PriorityQueue<>(new StudentComparator());
 
         //

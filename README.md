@@ -1,2 +1,2 @@
-# java-algorithm-structure
-record learn about java
+# structure-algorithm
+record learn about java, structure, algorithm and so on. 

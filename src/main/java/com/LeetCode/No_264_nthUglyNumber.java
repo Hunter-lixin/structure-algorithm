@@ -1,34 +1,32 @@
 package com.LeetCode;
 
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
+
 public class No_264_nthUglyNumber {
     public int nthUglyNumber(int n) {
-        int index = 0;
-        for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            if (isNthUgly(i)) {
-                index++;
-            }
-            if (index == n) {
-                return i;
-            }
-        }
-        return 0;
-    }
-
-    public boolean isNthUgly(int num) {
-        if (num <= 0) {
-            return false;
-        }
-        int[] arr = {2, 3, 5};
-        for (int i : arr) {
-            while (num % i == 0) {
-                num /= i;
+        int[] factors = {2, 3, 5};
+        Set<Long> seen = new HashSet<>();
+        PriorityQueue<Long> queue = new PriorityQueue<>();
+        seen.add(1L);
+        queue.offer(1L);
+        int ugly = 0;
+        for (int i = 0; i < n; i++) {
+            long curr = queue.poll();
+            ugly = (int) curr;
+            for (int factor : factors) {
+                long next = curr * factor;
+                if (seen.add(next)) {
+                    queue.offer(next);
+                }
             }
         }
-        return num == 1;
+        return ugly;
     }
 
     public static void main(String[] args) {
-        int n = 1352;
+        int n = 10;
         No_264_nthUglyNumber solution = new No_264_nthUglyNumber();
         System.out.println(solution.nthUglyNumber(n));
     }

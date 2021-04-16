@@ -1,7 +1,5 @@
 package com.LeetCode;
 
-import java.util.Arrays;
-
 public class No_213_rob {
     public int rob(int[] nums) {
         int len = nums.length;
